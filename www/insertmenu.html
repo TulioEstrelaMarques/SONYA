@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <title>Sonya - Software Objectified For Nursing Yearly Accompaniment Pre-Alpha</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="headermenu"><h1>Inserção de Formulário</h1></div>
+        
+        
+        
+        
+        <div class="form_insertion" id="personaldata">
+            <label class="section_definer">I - Identificação</label>
+            <input type="text" name="persname" class="persdata" placeholder="Nome completo do Paciente">
+            <input type="number" name="persname" class="persdata" id="perscpf" placeholder="CPF do Paciente">
+            <input type="text" name="persname" class="persdata" placeholder="Nome completo do Responsável(se menor)">
+            
+                <label class="perssex">Sexo do Paciente:</label>
+                <h1 class="sexdescriptionM">Masculino:</h1>
+                <input type="radio" name="sexcheck" class="sexcheckM" value="Masculino">
+                <h1 class="sexdescriptionF">Feminino:</h1>
+                <input type="radio" name="sexcheck" class="sexcheckF" value="Feminino">
+            
+            <label class="agedescription">Idade do Paciente:</label>
+            <input type="number" name="persage" class="persage" placeholder="Idade">
+            <label class="childrendescription">N° de filhos:</label>
+            <input type="number" name="perschild" class="perschild"placeholder="N°">
+            <label class="birth_daydescription">Data de Nascimento:</label>
+            <input type="date" name="birthdate" class="birthdate">
+            
+            <input type="text" name="persname" class="persdata" placeholder="Naturalidade">
+            <input type="text" name="persname" class="persdata" placeholder="Escolaridade">
+            <input type="text" name="persname" class="persdata" placeholder="Estado civil">
+            <input type="text" name="persname" class="persdata" placeholder="Profissão">
+            <input type="text" name="persname" class="persdata" placeholder="Crenças religiosas">
+            <input type="text" name="persname" class="persdata" placeholder="Residência fixa">
+            <input type="text" name="persname" class="persdata" placeholder="Residencia temporária">
+        </div>
+        
+        
+        
+        
+        <div class="form_insertion" id="hospitalization_data1">
+            <label class="section_definer">II - Hospitalização - Parte 1</label>
+            <label class="datelabel">Data de admissão</label>
+            <input type="date" name="diagdate" class="diagdate">
+            <label class="hourlabel">Hora de admissão</label>
+            <input type="time" name="diagtime" class="diagtime">
+            
+            <label id="radioinfo_main">Admitido vindo de:</label>
+            <label id="radioinfo">Casa, sozinho:<input type="radio" name="admission_check" id="Xor" value="Casasozinho" onclick="checkAdmission(0)"></label>
+            <label id="radioinfo">Casa, acompanhado:<input type="radio" name="admission_check" id="Xor" value="Casaacompanhado" onclick="checkAdmission(0)"></label>
+            <label id="radioinfo">Sem teto: <input type="radio" name="admission_check" id="Xor" value="Semteto" onclick="checkAdmission(0)"></label>
+            <label id="radioinfo">Ambulatório (texto):<input type="radio" name="admission_check" id="Xor" value="Ambulatorio" onclick="checkAdmission(1)"></label>
+            <input type="text" name="persname" id="ambulatory" placeholder="Nome do Ambulatório" disabled>
+            <label id="radioinfo">Tranferência (texto):<input type="radio" name="admission_check" id="Xor" value="Transferido" onclick="checkAdmission(2)"></label>
+            <input type="text" name="persname" id="transferred" placeholder="Local de onde foi transferido" disabled>
+            <label id="radioinfo">Outro (texto):<input type="radio" name="admission_check" id="Xor" value="Outro" onclick="checkAdmission(3)"></label>
+            <input type="text" name="persname" id="other" placeholder="Local" disabled>
+            
+            <label id="radioinfo_main">Método de chegada:</label>
+            <label id="radioinfo">Cadeira de rodas:<input type="radio" name="arrival_check" id="Xor" value="Cadeiraderodas"></label>
+            <label id="radioinfo">Maca:<input type="radio" name="arrival_check" id="Xor" value="Maca"></label>
+            <label id="radioinfo">Ambulância:<input type="radio" name="arrival_check" id="Xor" value="Ambulancia"></label>
+            <label id="radioinfo">Deambulando:<input type="radio" name="arrival_check" id="Xor" value="Deambulando"></label>
+            
+            
+            
+            <div id="spacer"></div>
+        </div>
+        
+        
+        
+        
+        <div class="form_insertion" id="hospitalization_data2">
+            <label class="section_definer">II - Hospitalização - Parte 2</label>
+        
+            <label class="datelabel">Data de internação</label>
+            <input type="date" name="hospitalizeddate" class="diagdate">
+            <label class="hourlabel">Hora de internação</label>
+            <input type="time" name="hospitalizedtime" class="diagtime" id="hosptime">
+            <input type="text" name="clinicdiag" class="persdata" placeholder="Diagnóstico clínico">
+            <input type="text" name="complaints" class="persdata" placeholder="Queixas">
+            <input type="text" name="hospitalizereason" class="persdata" placeholder="Motivo da internação">
+            <input type="text" name="familybackground" class="persdata" placeholder="Antecedentes familiares">
+            <input type="text" name="allergies" class="persdata" placeholder="Alergias">
+            <input type="text" name="medicareinuse" class="persdata" placeholder="Medicamentos em uso">
+        
+            <div id="spacer2"></div>
+        </div>
+        
+        <div class="form_insertion" id="perspectives">
+            <label class="section_definer">III - Perspectivas</label>
+            <div id="spacer"></div>
+        
+            <textarea cols="1" rows="4" type="text" name="expectations" class="textdata" placeholder="Expectativas sobre o tratamento(Máx. n caracteres)"></textarea>
+            <div id="spacer"></div>
+            <textarea cols="1" rows="18" name="observations" class="textdata" placeholder="Observações(Máx. n caracteres)"></textarea>
+            
+        
+            <div id="spacer3"></div>
+        </div>
+        
+        
+        
+        
+        <div class="form_insertion" id="health_situation1_1">
+            <label class="section_definer">IV - Situação de Saúde</label>
+            <div id="spacer"></div>
+            <label id="radioinfo_main">1.1 Regulação Neurológica</label>
+            
+            <label id="radioinfo_sub">Nível de consciência</label>
+            <label id="radioinfo">Consciente:<input type="radio" name="counsciouslevel" id="Xor" value="Consciente"></label>
+            <label id="radioinfo">Inconsciente:<input type="radio" name="counsciouslevel" id="Xor" value="Inconsciente"></label>
+            <label id="radioinfo">Sedado:<input type="radio" name="counsciouslevel" id="Xor" value="Sedado"></label>
+            <label id="radioinfo">Alerta:<input type="radio" name="counsciouslevel" id="Xor" value="Alerta"></label>
+            <label id="radioinfo">Comatoso:<input type="radio" name="counsciouslevel" id="Xor" value="Comatoso"></label>
+            <label id="radioinfo">Orientado:<input type="radio" name="counsciouslevel" id="Xor" value="Orientado"></label>
+            <label id="radioinfo">Desorientado:<input type="radio" name="counsciouslevel" id="Xor" value="Desorientado"></label>
+            
+            <label id="radioinfo_sub">Pupilas</label>
+            <label id="radioinfo">Fotorreagentes:<input type="radio" name="pupils" id="Xor" value="Fotorreagente"></label>
+            <label id="radioinfo">Não-Fotorreagentes:<input type="radio" name="pupils" id="Xor" value="NFotorreagente"></label>
+            <label id="radioinfo">Isocóricas:<input type="radio" name="pupils" id="Xor" value="Isocoricas"></label>
+            <label id="radioinfo">Anisocóricas:<input type="radio" name="pupils" id="Xor" value="Anisocoricas"></label>
+        
+            <div id="spacer4"></div>
+        </div>
+        
+        
+        
+        
+        <div class="form_insertion" id="health_situation1_2">
+            <label class="section_definer">IV - Situação de Saúde</label>
+            <label id="radioinfo_main">1.2 Necessidade de Percepção Sensorial - Parte 1</label>
+            
+            <label id="radioinfo_sub">Dor:</label>
+            <label id="radioinfo">Não:<input type="radio" name="paincheck" id="Xor" value="Nao" onclick="checkPainObs(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="paincheck" id="Xor" value="Sim" onclick="checkPainObs(1);"></label>
+            <input type="text" name="painregion" class="textdata" id="painregion" placeholder="Local">
+            <input type="text" name="painspecifications" class="textdata" id="painspecs" placeholder="Características">
+            
+            <label id="radioinfo_sub">Acuidade auditiva (distingue sons):</label>
+            <label id="radioinfo">Não:<input type="radio" name="auditivecheck" id="Xor" value="Nao"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="auditivecheck" id="Xor" value="Sim"></label>
+            <label id="radioinfo_side2">Diminuída:<input type="radio" name="auditivecheck" id="Xor" value="Diminuida"></label>
+            <input type="text" name="painspecifications" class="textdata" id="auditiveobs" placeholder="Observação">
+            
+            <label id="radioinfo_sub">Acuidade gustativa (distingue sabores):</label>
+            <label id="radioinfo">Não:<input type="radio" name="gustativecheck" id="Xor" value="Nao"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="gustativecheck" id="Xor" value="Sim"></label>
+            <label id="radioinfo_side2">Diminuída:<input type="radio" name="gustativecheck" id="Xor" value="Diminuida"></label>
+            <input type="text" name="painspecifications" class="textdata" id="gustativeobs" placeholder="Observação">
+            
+            <label id="radioinfo_sub">Acuidade tátil (discerne objetos pelo toque):</label>
+            <label id="radioinfo">Não:<input type="radio" name="tactilecheck" id="Xor" value="Nao"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="tactilecheck" id="Xor" value="Sim"></label>
+            <label id="radioinfo_side2">Diminuída:<input type="radio" name="tactilecheck" id="Xor" value="Diminuida"></label>
+            <input type="text" name="painspecifications" class="textdata" id="tactileobs" placeholder="Observação">
+        
+            <div id="spacer5"></div>
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_2_2">
+            <label class="section_definer">IV - Situação de Saúde</label>
+            <div id="spacer4"></div>
+            <label id="radioinfo_main">1.2 Necessidade de Percepção Sensorial - Parte 2</label>
+        
+            <label id="radioinfo_sub">Acuidade visual (distingue objetos pela visão):</label>
+            <label id="radioinfo">Diminuída:<input type="radio" name="visualcheck" id="Xor" value="Diminuida"></label>
+            <label id="radioinfo">Nenhuma:<input type="radio" name="visualcheck" id="Xor" value="Nenhuma"></label>
+            <label id="radioinfo">Normal:<input type="radio" name="visualcheck" id="Xor" value="Normal"></label>
+            <label id="radioinfo">Óculos:<input type="radio" name="visualcheck" id="Xor" value="Oculos"></label>
+            <label id="radioinfo">Lentes:<input type="radio" name="visualcheck" id="Xor" value="Lentes"></label>
+            <label id="radioinfo">Prótese:<input type="radio" name="visualcheck" id="Xor" value="Protese"></label>
+            
+            <div id="spacer"></div>
+            
+            <textarea cols="1" rows="4" name="otherchanges" class="textdata" placeholder="Outras alterações"></textarea>
+            
+            <div id="spacer6"></div>
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_3">
+            <label class="section_definer">1.3 Oxigenação - Parte 1</label>
+            
+            <div id="spacer"></div>
+
+            <label id="radioinfo">Frequência respiratória:<input type="number" name="breathrate" class="breathrate" placeholder="0000 RPM"></label>
+            <label id="radioinfo">Ritmo</label>
+            <label id="radioinfo">Regular:<input type="radio" name="breathrhythm" id="Xor" value="Regular"></label>
+            <label id="radioinfo_side">Irregular:<input type="radio" name="breathrhythm" id="Xor" value="Irregular"></label>
+            
+            <div id="spacer"></div>
+            
+            <label id="radioinfo_main">Ausculta Pulmonar:</label>
+            <label id="radioinfo_sub">Murmúrio vesicular:</label>
+            <label id="radioinfo">Normal:<input type="radio" name="lungcheck" id="Xor" value="Normal"></label>
+            <label id="radioinfo_side">Ausente:<input type="radio" name="lungcheck" id="Xor" value="Ausente"></label>
+            <label id="radioinfo_side2">Diminuída:<input type="radio" name="lungcheck" id="Xor" value="Diminuida"></label>
+            <label id="radioinfo">Bilateral:<input type="radio" name="lungcheck" id="Xor" value="Normal"></label>
+            <label id="radioinfo_side">PD:<input type="radio" name="lungcheck" id="Xor" value="Ausente"></label>
+            <label id="radioinfo_side2">PE:<input type="radio" name="lungcheck" id="Xor" value="Diminuida"></label>
+            <input type="text" name="lungspecifications" class="textdata" id="lungobs" placeholder="Lobos">
+            
+            <label id="radioinfo_sub">Ruidos advebticios:</label>
+            <label id="radioinfo">Nenhum:<input type="radio" name="lungcheck2" id="Xor" value="Normal"></label>
+            <label id="radioinfo_side">Roncos:<input type="radio" name="lungcheck2" id="Xor" value="Roncos"></label>
+            <label id="radioinfo_side2">Estertores:<input type="radio" name="lungcheck2" id="Xor" value="Estertores"></label>
+            <label id="radioinfo">Bilateral:<input type="radio" name="lungcheck2" id="Xor" value="Bilateral"></label>
+            <label id="radioinfo_side">Sibilos<input type="radio" name="lungcheck2" id="Xor" value="Sibilos"></label>
+            <label id="radioinfo_side2">PD:<input type="radio" name="lungcheck2" id="Xor" value="PD"></label>
+            <label id="radioinfo">PE:<input type="radio" name="lungcheck2" id="Xor" value="PE"></label>
+            <input type="text" name="lungspecifications2" class="textdata" id="lungobs" placeholder="Lobos">          
+            <div id="spacer7"></div>
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_3_2">
+            <label class="section_definer">1.3 Oxigenação - Parte 2</label>
+            
+            
+            <label id="radioinfo">Tosse: <input type="checkbox" name="lungcheckbox" id="lungchecker" value="Tosse"></label>
+            <label id="radioinfo">Expectoração: <input type="checkbox" name="lungcheckbox" id="lungchecker" value="Expectoracao"></label>
+            <div id="spacer4"></div>
+            <input type="text" name="lungspecifications3" class="textdata" id="lungspecs" placeholder="Características"> 
+            
+            <label id="radioinfo_sub">Expansão da caixa torácica:</label>
+            <label id="radioinfo">Simétrica:<input type="radio" name="lungcheck4" id="Xor" value="Simetrica"></label>
+            <label id="radioinfo_side">Assimétrica:<input type="radio" name="lungcheck4" id="Xor" value="Assimetrica"></label>
+            <label id="radioinfo">Profunda:<input type="radio" name="lungcheck4" id="Xor" value="Simetrica"></label>
+            <label id="radioinfo_side">Superficial:<input type="radio" name="lungcheck4" id="Xor" value="Simetrica"></label>
+            
+            
+            <label id="radioinfo_sub">Necessidade de oxigenoterapia:</label>
+            <label id="radioinfo">Nao:<input type="radio" name="lungcheck5" id="Xor" value="Nao"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="lungcheck5" id="Xor" value="Sim"></label>
+            
+            <label id="radioinfo_sub">Dor inspiratória:</label>
+            <label id="radioinfo">Nao:<input type="radio" name="lungcheck6" id="Xor" value="Nao"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="lungcheck6" id="Xor" value="Sim"></label>
+            <input type="text" name="lungspecifications3" class="textdata" id="lungobs" placeholder="Características"> 
+            
+            <label id="radioinfo">Tontura: <input type="checkbox" name="lungcheckbox" id="lungchecker" value="Tontura"></label>
+            <label id="radioinfo_side">Fadiga: <input type="checkbox" name="lungcheckbox" id="lungchecker" value="Fadiga"></label>
+            <label id="radioinfo_side2">Fraqueza: <input type="checkbox" name="lungcheckbox" id="lungchecker" value="Fraqueza"></label>
+            <input type="text" name="lungspecifications3" class="textdata" id="lungobs" placeholder="Observações"> 
+            
+            <label id="radioinfo">Fatores de risco -> Tabagismo: <input type="checkbox" name="smokercheckbox" id="lungchecker" value="Sim" onclick="checkSmoker();"></label>
+            <input type="text" name="smokefreq" class="textdata" id="smoker" placeholder="Quant/Dia">
+            <input type="number" name="smokestartsince" class="textdata" id="smoker2" placeholder="Há ____ Anos"> 
+            <input type="text" name="stoppedsmoking" class="textdata" id="smoker3" placeholder="Parou a:"> 
+            
+            <div id="spacer8"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_4">
+            <label class="section_definer">1.4 Regulação Vesicular - Parte 1</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Frequência cardíaca:<input type="number" name="heartbeat" class="breathrate" placeholder="000 BPM"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Característica do pulso:</label>
+            
+            <input type="text" name="pulse1" class="textdata" id="pulsepressure" placeholder="Radial">
+            <input type="text" name="pulse2" class="textdata" id="pulsepressure2" placeholder="Poplíteo">
+            <input type="text" name="pulse3" class="textdata" id="pulsepressure" placeholder="Femural">
+            <input type="text" name="pulse4" class="textdata" id="pulsepressure2" placeholder="Pedioso">
+            <input type="text" name="pulse5" class="textdata" id="pulsepressure3" placeholder="Carotídeo">
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <input type="text" name="heartobs" class="textdata" placeholder="Outras alterações">
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Pressão arterial:</label>
+            
+            <label id="radioinfo">Braço D:<input type="radio" name="heartprescheck" id="Xor" value="BracoD"></label>
+            <label id="radioinfo_side">Braço E<input type="radio" name="heartprescheck" id="Xor" value="BracoE"></label>
+            
+            <label id="radioinfo_main">Sentado:</label>
+            
+            <label id="radioinfo_sub">X__</label>
+            <input type="text" name="pulse1" class="textdata" id="pulsepressure2" placeholder="000 mm/Hg">
+            <input type="text" name="pulse1" class="textdata" id="pulsepressure4" placeholder="000">
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Deitado:</label>
+            
+            <label id="radioinfo_sub">X__</label>
+            <input type="text" name="pulse1" class="textdata" id="pulsepressure2" placeholder="000 mm/Hg">
+            <input type="text" name="pulse1" class="textdata" id="pulsepressure4" placeholder="000">
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Rede vascular colateral:</label>
+            
+            <label id="radioinfo">Visível:<input type="radio" name="heartcheck" id="Xor" value="Visivel"></label>
+            <label id="radioinfo_side">De difícil visualização:<input type="radio" name="heartcheck" id="Xor" value="Dificilvisualizacao"></label>
+            
+            <div id="spacer9"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_4_2">
+            <label class="section_definer">1.4 Regulação Vesicular - Parte 2</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Coloração da pele e extremidades:</label>
+            
+            <label id="radioinfo">Normal:<input type="radio" name="skincolorcheck" id="Xor" value="Normal" onclick="checkSkin(0);"></label>
+            
+            <label id="radioinfo">Palidez:<input type="radio" name="skincolorcheck" id="Xor" value="Palidez" onclick="checkSkin(1);"></label>
+            <input type="text" name="skincolor" class="textdata" id="skincheck1" placeholder="Descrição">
+            
+            <label id="radioinfo">Rubor:<input type="radio" name="skincolorcheck" id="Xor" value="Rubor" onclick="checkSkin(2);"></label>
+            <input type="text" name="skincolor" class="textdata" id="skincheck2" placeholder="Descrição">
+            
+            <label id="radioinfo">Cianose:<input type="radio" name="skincolorcheck" id="Xor" value="Cianose" onclick="checkSkin(3);"></label>
+            <input type="text" name="skincolor" class="textdata" id="skincheck3" placeholder="Descrição">
+            
+            <label id="radioinfo_main">Perfusão periférica:</label>
+            
+            <label id="radioinfo">Presente:<input type="radio" name="perfperipheral" id="Xor" value="Presente"></label>
+            <label id="radioinfo_side">Ausente:<input type="radio" name="perfperipheral" id="Xor" value="Ausente"></label>
+            <label id="radioinfo_side2">Diminuída:<input type="radio" name="perfperipheral" id="Xor" value="Diminuida"></label>
+            
+            <textarea cols="1" rows="10" name="labchanges" class="textdata" placeholder="Alterações laboratoriais(tipos, valores e datas)"></textarea>
+            
+            <div id="spacer10"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_5">
+            <label class="section_definer">1.5 Regulação Térmica</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Temperatura axilar:<input type="number" name="bodytemp" class="bodytemp" placeholder="°C"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Sudorese:</label>
+            <label id="radioinfo">Intensa:<input type="radio" name="sweatcheck" id="Xor" value="Intensa"></label>
+            <label id="radioinfo_side">Mínima:<input type="radio" name="sweatcheck" id="Xor" value="Minima"></label>
+            <label id="radioinfo">Dentro dos limites normais:<input type="radio" name="sweatcheck" id="Xor" value="Dentro dos limites normais"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="7" name="tempchanges" class="textdata" placeholder="Outras Alterações"></textarea>
+            
+            <div id="spacer11"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_6">
+            <label class="section_definer">1.6 Necessidade de Integridade Tecidual</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Lesões na pele:</label>
+            
+            <textarea cols="1" rows="12" name="tempchanges" class="textdata" placeholder="Descrição"></textarea>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="5" name="tempchanges" class="textdata" placeholder="Observações"></textarea>
+            
+            <div id="spacer12"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_7">
+            <label class="section_definer">1.7 Hidratação</label>
+            
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="4" name="hydroinfo" class="textdata" placeholder="Tipo de líquidos, frequência e quantidade diária"></textarea>
+            
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="3" name="skinturgor" class="textdata" placeholder="Turgor na pele"></textarea>
+            
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="2" name="skinturgor" class="textdata" placeholder="Condições da mucosa oral"></textarea>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Presença de edema:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="edemacheck" id="Xor" value="Nao" onclick="checkEdema(0);"></label>
+            <label id="radioinfo_side">Anasarca:<input type="radio" name="edemacheck" id="Xor" value="Anasarca" onclick="checkEdema(0);"></label>
+            <label id="radioinfo">Localizado:<input type="radio" name="edemacheck" id="Xor" value="Localizado" onclick="checkEdema(1);"></label>
+            <input type="text" name="edemalocaltext" class="textdata" id="edemalocaltxt" placeholder="Local">
+            
+            <div id="spacer13"></div>
+            
+            <label id="radioinfo_main">Restrição Hídrica:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Não:<input type="radio" name="hydrocheck" id="Xor" value="Nao" onclick="checkHydro(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="hydrocheck" id="Xor" value="Sim" onclick="checkHydro(1);"></label>
+            <input type="text" name="waterrestrictiondescription" class="textdata" id="waterrestrictiondesc" placeholder="Descrição">
+            
+            <div id="spacer14"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_8">
+            <label class="section_definer">1.8 Alimentação - Parte 1</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Peso atual:<input type="number" name="curweight" class="bodytemp" placeholder="Kg"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Peso anterior:<input type="number" name="lastweighttemp" class="bodytemp" placeholder="Kg"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Altura:<input type="number" name="height" class="bodytemp" placeholder="cm"></label>
+            
+            <label id="radioinfo_main">Estado nutricional:</label>
+            
+            <label id="radioinfo">Bom:<input type="radio" name="nutricheck" id="Xor" value="Bom"></label>
+            <label id="radioinfo">Deficiente:<input type="radio" name="nutricheck" id="Xor" value="Deficiente"></label>
+            <label id="radioinfo">Emagrecido:<input type="radio" name="nutricheck" id="Xor" value="Emagrecido"></label>
+            <label id="radioinfo">Caquético:<input type="radio" name="nutricheck" id="Xor" value="Caquetico"></label>
+            <label id="radioinfo">Obeso:<input type="radio" name="nutricheck" id="Xor" value="Obeso"></label>
+            
+            <label id="radioinfo_sub">Dificuldade de ingestão:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="ingestcheck" id="Xor" value="Nao"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="ingestcheck" id="Xor" value="Sim"></label>
+            
+            <label id="radioinfo_sub">Etilismo:</label>
+            
+            <input type="text" name="" class="textdata" placeholder="Quantidade por dia">
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Há:<input type="number" name="curweight" class="etiltime" placeholder="Anos"></label>
+            
+            <div id="spacer4"></div>
+            
+            <input type="text" name="waterrestrictiondescription" class="textdata" id="etiltext" placeholder="Parou a:">
+            
+            <div id="spacer15"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_8_2">
+            <label class="section_definer">1.8 Alimentação - Parte 2</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="5" name="foodinfo" class="textdata" placeholder="Tipos de alimentos, quantidades e frequência"></textarea>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="2" name="foodtime" class="textdata" placeholder="Horários"></textarea>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="3" name="foodrestriction" class="textdata" placeholder="Restrições"></textarea>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Ostomia:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="ostomycheck" id="Xor" value="Nao"  onclick="checkOstomy(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="ostomycheck" id="Xor" value="Sim" onclick="checkOstomy(1);"></label>
+            <input type="text" name="ostomydescription" class="textdata" id="ostomydesc" placeholder="Descrição">
+            
+            <div id="spacer16"></div>
+            
+            <label id="radioinfo_main">Prótese Dentária:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="dentalcheck" id="Xor" value="Nao"  onclick="checkDental(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="dentalcheck" id="Xor" value="Sim" onclick="checkDental(1);"></label>
+            <input type="text" name="Dentalprostheticdescription" class="textdata" id="dentalprostdesc" placeholder="Descrição">
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer17"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_9">
+            <label class="section_definer">1.9 Eliminação - Parte 1</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Eliminação urinária:</label>
+            
+            <label id="radioinfo">Normal:<input type="radio" name="urinalcheck" id="Xor" value="Normal"></label>
+            <label id="radioinfo">Oligúria:<input type="radio" name="urinalcheck" id="Xor" value="Oliguria"></label>
+            <label id="radioinfo">Polaciúria:<input type="radio" name="urinalcheck" id="Xor" value="Polaciuria"></label>
+            <label id="radioinfo">Nictúria:<input type="radio" name="urinalcheck" id="Xor" value="Nicturia"></label>
+            <label id="radioinfo">Urgência miccional:<input type="radio" name="urinalcheck" id="Xor" value="Urgencia miccional"></label>
+            <label id="radioinfo">Disúria:<input type="radio" name="urinalcheck" id="Xor" value="Disuria"></label>
+            <label id="radioinfo">Anúria:<input type="radio" name="urinalcheck" id="Xor" value="Anuria"></label>
+            <label id="radioinfo">Incontinência:<input type="radio" name="urinalcheck" id="Xor" value="Incontinencia"></label>
+            <label id="radioinfo">Diminuição do jato urinário:<input type="radio" name="urinalcheck" id="Xor" value="Diminuicao do jato urinario"></label>
+            <label id="radioinfo">Enurese:<input type="radio" name="urinalcheck" id="Xor" value="Enurese"></label>
+            
+            <div id="spacer18"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_9_2">
+            <label class="section_definer">1.9 Eliminação - Parte 2</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Eliminação intestinal:</label>
+            
+            <label id="radioinfo">Normal:<input type="radio" name="intestinalcheck" id="Xor" value="Normal"></label>
+            <label id="radioinfo">Obstipação:<input type="radio" name="intestinalcheck" id="Xor" value="Obstipacao"></label>
+            <label id="radioinfo">Diarréia:<input type="radio" name="intestinalcheck" id="Xor" value="Diarreia"></label>
+            <label id="radioinfo">Melena:<input type="radio" name="intestinalcheck" id="Xor" value="Melena"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">N° de evacuações por dia:<input type="number" name="evactimes" class="breathrate" placeholder="000"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Data da última evacuação:</label>
+            
+            <label class="datelabel">Data:</label>
+            <input type="date" name="diagdate" class="diagdate">
+            <label class="hourlabel">Hora:</label>
+            <input type="time" name="diagtime" class="diagtime">
+            
+            <label id="radioinfo_main">Uso de laxantes:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="laxusecheck" id="Xor" value="Nao" onclick="checkLax(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="laxusecheck" id="Xor" value="Sim" onclick="checkLax(1);"></label>
+            <input type="text" name="laxativeusedescription" class="textdata" id="laxusedesc" placeholder="Quais">
+            
+            <div id="spacer19"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_9_3">
+            <label class="section_definer">1.9 Eliminação - Parte 3</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Sonda vesical:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="vesicalsoundcheck" id="Xor" value="Nao" onclick="checkVesSound(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="vesicalsoundcheck" id="Xor" value="Sim" onclick="checkVesSound(1);"></label>
+            <input type="text" name="vesicalsounddescription" class="textdata" id="vessounddesc" placeholder="Descrição">
+            
+            <div id="spacer20"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Ruídos hidroaéreos:</label>
+            
+            <label id="radioinfo">Ausentes:<input type="radio" name="vesicalsoundcheck" id="Xor" value="Ausentes"></label>
+            <label id="radioinfo">Presentes:<input type="radio" name="vesicalsoundcheck" id="Xor" value="Presentes"></label>
+            <label id="radioinfo">Diminuídos:<input type="radio" name="vesicalsoundcheck" id="Xor" value="Diminuidos"></label>
+            <label id="radioinfo">Aumentados:<input type="radio" name="vesicalsoundcheck" id="Xor" value="Aumentados"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Dor à palpação abdominal:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="abpaincheck" id="Xor" value="Nao" onclick="checkAbPain(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="abpaincheck" id="Xor" value="Sim" onclick="checkAbPain(1);"></label>
+            <input type="text" name="abdominalpaincheckdescription" class="textdata" id="abpaindesc" placeholder="Local">
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer21"></div>
+            <div id="spacer21"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_10">
+            <label class="section_definer">1.10 Atividades Físicas - Parte 1</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Prática de exercícios e atividades físicas:</label>
+            <label id="radioinfo">Não:<input type="radio" name="exercisecheck" id="Xor" value="Nao" onclick="checkExFreq(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="exercisecheck" id="Xor" value="Sim" onclick="checkExFreq(1);"></label>
+            <input type="text" name="exercisefrequencydescription" class="textdata" id="exfreqdesc" placeholder="Frequência e tipo">
+            
+            <div id="spacer22"></div>
+            
+            <label id="radioinfo_main">Postura corporal:</label>
+            
+            <label id="radioinfo">Lordose:<input type="radio" name="bodyposecheck" id="Xor" value="Nao"></label>
+            <label id="radioinfo_side">Cifose:<input type="radio" name="bodyposecheck" id="Xor" value="Cifose"></label>
+            <label id="radioinfo">Escoliose:<input type="radio" name="bodyposecheck" id="Xor" value="Escoliose"></label>
+            <label id="radioinfo_side">Normal:<input type="radio" name="bodyposecheck" id="Xor" value="Normal"></label>
+            
+            <label id="radioinfo_main">Dores nas atividades físicas:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="expaincheck" id="Xor" value="Nao" onclick="checkExPain(0);"></label>
+            <label id="radioinfo_side">Mialgia:<input type="radio" name="expaincheck" id="Xor" value="Sim" onclick="checkExPain(0);"></label>
+            <label id="radioinfo">Artralgia:<input type="radio" name="expaincheck" id="Xor" value="Nao" onclick="checkExPain(0);"></label>
+            <label id="radioinfo_side">Outros:<input type="radio" name="expaincheck" id="Xor" value="Sim" onclick="checkExPain(1);"></label>
+            <input type="text" name="exercisepaindescription" class="textdata" id="expaindesc" placeholder="Outros">
+            
+            <div id="spacer23"></div>
+            
+            <input type="text" name="exerciseextradescription" class="textdata" id="expaindesc" placeholder="Características">
+            
+            <div id="spacer24"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_10_2">
+            <label class="section_definer">1.10 Atividades Físicas - Parte 2</label>
+            
+            <label id="radioinfo_main">Motilidade:</label>
+            
+            <label id="radioinfo">Normal:<input type="radio" name="expaincheck" id="Xor" value="Nao"></label>
+            <label id="radioinfo">Involuntária:<input type="radio" name="expaincheck" id="Xor" value="Sim"></label>
+            <input type="text" name="motilitydescription" class="textdata" placeholder="Características">
+            
+            <label id="radioinfo">Hemiplegia:<input type="radio" name="motilitycheck" id="Xor" value="Hemiplegia"></label>
+            <label id="radioinfo">Monoplegia:<input type="radio" name="motilitycheck" id="Xor" value="Monoplegia"></label>
+            <label id="radioinfo">Paraplegia:<input type="radio" name="motilitycheck" id="Xor" value="Paraplegia"></label>
+            <label id="radioinfo">Tetraplegia:<input type="radio" name="motilitycheck" id="Xor" value="Tetraplegia"></label>
+            <input type="text" name="motilitydescription2" class="textdata" placeholder="Características">
+            
+            <label id="radioinfo">Hemiparesia:<input type="radio" name="motilitycheck" id="Xor" value="Hemiparesia"></label>
+            <label id="radioinfo">Monoparesia:<input type="radio" name="motilitycheck" id="Xor" value="Monoparesia"></label>
+            <label id="radioinfo">Parestesia:<input type="radio" name="motilitycheck" id="Xor" value="Parestesia"></label>
+            <label id="radioinfo">Tetraparesia:<input type="radio" name="motilitycheck" id="Xor" value="Tetraparesia"></label>
+            <input type="text" name="motilitydescription2" class="textdata" placeholder="Características">
+            
+            <input type="text" name="motilityinfo" class="textdata" placeholder="Observações gerais">
+            
+            <div id="spacer25"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_11">
+            <label class="section_definer">1.11 Sono e Repouso</label>
+            
+            <label id="radioinfo_main">Hábitos de sono e repouso:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Horas por dia/noite:<input type="number" name="sleephours" class="bodytemp" placeholder="00"></label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_sub">Horário de respouso:</label>
+            
+            <label id="radioinfo">Manhã:<input type="radio" name="naptime" id="Xor" value="Manha"></label>
+            <label id="radioinfo_side">Tarde:<input type="radio" name="naptime" id="Xor" value="Tarde"></label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Sente-se descansado após dormir:</label>
+            
+            <label id="radioinfo">Sim:<input type="radio" name="restedsleepcheck" id="Xor" value="Sim"></label>
+            <label id="radioinfo_side">Não:<input type="radio" name="restedsleepcheck" id="Xor" value="Nao"></label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Problemas:</label>
+            
+            <label id="radioinfo">Nenhum:<input type="radio" name="sleepproblemscheck" id="Xor" value="Nanhum" onclick="checkSleep(0);"></label>
+            <label id="radioinfo_side">Acordar cedo:<input type="radio" name="sleepproblemscheck" id="Xor" value="Acordarcedo" onclick="checkSleep(0);"></label>
+            <label id="radioinfo">Insônia:<input type="radio" name="sleepproblemscheck" id="Xor" value="Insonia" onclick="checkSleep(0);"></label>
+            <label id="radioinfo_side">Pesadelos:<input type="radio" name="sleepproblemscheck" id="Xor" value="Pesadelos" onclick="checkSleep(0);"></label>
+            <label id="radioinfo">Apneia:<input type="radio" name="sleepproblemscheck" id="Xor" value="Apneia" onclick="checkSleep(0);"></label>
+            <label id="radioinfo_side">Sonambulismo:<input type="radio" name="sleepproblemscheck" id="Xor" value="Sonambulismo" onclick="checkSleep(0);"></label>
+            <label id="radioinfo">Outros:<input type="radio" name="sleepproblemscheck" id="Xor" value="Outros" onclick="checkSleep(1);"></label>
+            <input type="text" name="sleepproblemsdesc" class="textdata" id="sleepproblemdesc" placeholder="Outros">
+            
+            <div id="spacer26"></div>
+            
+            <label id="radioinfo_main">Uso de soníferos:</label>
+            
+            <label id="radioinfo">Não:<input type="radio" name="restedsleepcheck" id="Xor" value="Nao" onclick="checkSleepPill(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="restedsleepcheck" id="Xor" value="Sim" onclick="checkSleepPill(1);"></label>
+            <input type="text" name="sleepingpilldesc" class="textdata" id="sleeppilldesc" placeholder="Quais">
+            
+            <div id="spacer27"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_12">
+            <label class="section_definer">1.12 Cuidado Corporal - Parte 1</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Corpo:</label>
+            
+            <label id="radioinfo">Asseado:<input type="radio" name="bodycleancheck" id="Xor" value="Asseado"></label>
+            <label id="radioinfo_side">Roupas Limpas:<input type="radio" name="bodycleancheck" id="Xor" value="Roupaslimpas"></label>
+            <label id="radioinfo">Falta asseio:<input type="radio" name="bodycleancheck" id="Xor" value="Faltaasseio"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Higiene dos Cabelos:</label>
+            
+            <label id="radioinfo">Favorável:<input type="radio" name="haircleancheck" id="Xor" value="Favoravel"></label>
+            <label id="radioinfo_side">_Desfavorável:<input type="radio" name="haircleancheck" id="Xor" value="Desfavoravel"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Higiene das Unhas:</label>
+            
+            <label id="radioinfo">Favorável:<input type="radio" name="nailcleancheck" id="Xor" value="Favoravel"></label>
+            <label id="radioinfo_side">_Desfavorável:<input type="radio" name="nailcleancheck" id="Xor" value="Desfavoravel"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Hábito de tomar banho no período:</label>
+            
+            <label id="radioinfo">Manhã:<input type="radio" name="bathtimecheck" id="Xor" value="Manha"></label>
+            <label id="radioinfo_side">Tarde:<input type="radio" name="bathtimecheck" id="Xor" value="Tarde"></label>
+            <label id="radioinfo_side2">Noite:<input type="radio" name="bathtimecheck" id="Xor" value="Noite"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Higiene bucal:</label>
+            
+            <label id="radioinfo">Favorável:<input type="radio" name="toothcleancheck" id="Xor" value="Favoravel"></label>
+            <label id="radioinfo_side">_Desfavorável:<input type="radio" name="toothcleancheck" id="Xor" value="Desfavoravel"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_12_2">
+            <label class="section_definer">1.12 Cuidado Corporal - Parte 2</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Presença de cáries:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Não:<input type="radio" name="cariecheck" id="Xor" value="Nao" onclick="checkCarie(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="cariecheck" id="Xor" value="Sim" onclick="checkCarie(1);"></label>
+            <input type="text" name="cariecheckdesc" class="textdata" id="cariedesc" placeholder="Local(is)">
+            
+            <div id="spacer28"></div>
+            
+            <label id="radioinfo_main">Nível de dependência para realização de higiene pessoal:</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Auxilio de outros:<input type="radio" name="cleandependencycheck" id="Xor" value="Nao" onclick="checkCleanDependency(0);"></label>
+            <label id="radioinfo">Independente:<input type="radio" name="cleandependencycheck" id="Xor" value="Sim" onclick="checkCleanDependency(0);"></label>
+            <label id="radioinfo">Totalmente Dependente:<input type="radio" name="cleandependencycheck" id="Xor" value="Nao" onclick="checkCleanDependency(0);"></label>
+            <label id="radioinfo">Auxílio + equipamento auxiliar:<input type="radio" name="cleandependencycheck" id="Xor" value="Sim" onclick="checkCleanDependency(1);"></label>
+            <input type="text" name="cleandependencydescription" class="textdata" id="cleandependencydesc" placeholder="Pessoa(s)/Equipamento(s)">
+            
+            <div id="spacer29"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_13">
+            <label class="section_definer">1.13 Segurança física/meio ambiente:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Medo:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo_side">Ansiedade:<input type="radio" name="securitycheck" id="Xor" value="Desfavoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Aflição:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo_side">Agressividade:<input type="radio" name="securitycheck" id="Xor" value="Desfavoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Calma:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo_side">Distração:<input type="radio" name="securitycheck" id="Xor" value="Desfavoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Incapacidade:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Desamparo:<input type="radio" name="securitycheck" id="Xor" value="Desfavoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Risco de fuga:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Potencial para violência:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Reação à doença/estresse:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Risco de homicídio:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(0);"></label>
+            <label id="radioinfo">Outras alterações:<input type="radio" name="securitycheck" id="Xor" value="Favoravel" onclick="checkSecurity(1);"></label>
+            <input type="text" name="securitycheckdescription" class="textdata" id="securitydesc" placeholder="Riscos, situações, meios...">
+            
+            <div id="spacer30"></div>
+            
+            <label id="radioinfo_main">Necessidade de isolamento:</label>
+            <label id="radioinfo">Não:<input type="radio" name="isolationcheck" id="Xor" value="Nao" onclick="checkIsolation(0);"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="isolationcheck" id="Xor" value="Sim" onclick="checkIsolation(1);"></label>
+            <input type="text" name="isolationcheckdescription" class="textdata" id="isolationdesc" placeholder="Riscos, situações, meios...">
+            
+            <div id="spacer31"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation1_14">
+            <label class="section_definer">1.14 Sexualidade:</label>
+            
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="4" name="sexuallife" class="textdata" placeholder="Atividade sexual"></textarea>
+            
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="5" name="sexprotectioninfo" class="textdata" placeholder="Uso de contraceptivos ou proteção contra D.S.T.s"></textarea>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Corrimento genital:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Não:<input type="radio" name="genitalcheck" id="Xor" value="Nao"></label>
+            <label id="radioinfo_side">Sim:<input type="radio" name="genitalcheck" id="Xor" value="Sim"></label>
+            
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="3" name="genitalinfo" class="textdata" placeholder="Características"></textarea>
+            
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="5" name="sexualfearsinfo" class="textdata" placeholder="Preocupações sexuais relacionadas à doença"></textarea>
+            
+            <div id="spacer32"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation2_1">
+            <label class="section_definer">2.1 Comunicação:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Expressa-se com:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Clareza:<input type="radio" name="genitalcheck" id="Xor" value="Clareza"></label>
+            <label id="radioinfo_side">Objetividade:<input type="radio" name="genitalcheck" id="Xor" value="Objetividade"></label>
+            <label id="radioinfo">Confusão:<input type="radio" name="genitalcheck" id="Xor" value="Confusao"></label>
+            <label id="radioinfo_side">_Dificuldade:<input type="radio" name="genitalcheck" id="Xor" value="Dificuldade"></label>
+            <label id="radioinfo">Coerência:<input type="radio" name="genitalcheck" id="Xor" value="Coerencia"></label>
+            <label id="radioinfo">Respostas desconexas:<input type="radio" name="genitalcheck" id="Xor" value="RespostasDesconexas"></label>
+            <label id="radioinfo">Obstinação em não falar:<input type="radio" name="genitalcheck" id="Xor" value="ObstinenciaEmFalar"></label>
+            <label id="radioinfo">Logorréia:<input type="radio" name="genitalcheck" id="Xor" value="Logorreia"></label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Distúrbios da fala:</label>
+            
+            <label id="radioinfo">Afasia:<input type="radio" name="speechcheck" id="Xor" value="Afasia" onclick="checkSpeech(0);"></label>
+            <label id="radioinfo_side">Dislalia:<input type="radio" name="speechcheck" id="Xor" value="Dislalia" onclick="checkSpeech(0);"></label>
+            <label id="radioinfo">Disartría:<input type="radio" name="speechcheck" id="Xor" value="Disartria" onclick="checkSpeech(0);"></label>
+            <label id="radioinfo_side">Disfasia:<input type="radio" name="speechcheck" id="Xor" value="Disfasia" onclick="checkSpeech(0);"></label>
+            <label id="radioinfo">Disfonia:<input type="radio" name="speechcheck" id="Xor" value="Disfonia" onclick="checkSpeech(0);"></label>
+            <label id="radioinfo">Outros:<input type="radio" name="speechcheck" id="Xor" value="Outros" onclick="checkSpeech(1);"></label>
+            <input type="text" name="speechdisturbdescription" class="textdata" id="speechdisturbdesc" placeholder="Outros">
+            
+            <div id="spacer33"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation2_2">
+            <label class="section_definer">2.2 Gregária:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Interação social:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Permanece sozinho:<input type="radio" name="sociabilitycheck" id="Xor" value="PermaneceSozinho"></label>
+            <label id="radioinfo">Comunica-se com outros:<input type="radio" name="sociabilitycheck" id="Xor" value="ComunicaComOutros"></label>
+            <label id="radioinfo">Participa das atividades:<input type="radio" name="sociabilitycheck" id="Xor" value="ParticipaDasAtividades"></label>
+            <label id="radioinfo">Demonstra descontentamento:<input type="radio" name="sociabilitycheck" id="Xor" value="DemonstraDescontentamento"></label>
+            <label id="radioinfo">Não gosta de receber visitas:<input type="radio" name="sociabilitycheck" id="Xor" value="NaoGostaDeVisitas"></label>
+            
+            <div id="spacer34"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation2_3">
+            <label class="section_definer">2.3 Recreação e lazer:</label>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="18" name="recreationinfo" class="textdata" placeholder="Atividades de distração de costume"></textarea>
+            
+            <div id="spacer35"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation2_4">
+            <label class="section_definer">2.4 Segurança emocional:</label>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Saudade do lar:<input type="radio" name="emotioncheck" id="Xor" value="SaudadeDoLar"></label>
+            <label id="radioinfo">Medo do sofrimento:<input type="radio" name="emotioncheck" id="Xor" value="MedoDoSofrimento"></label>
+            <label id="radioinfo">Medo da morte:<input type="radio" name="emotioncheck" id="Xor" value="MedoDaMorte"></label>
+            <label id="radioinfo">Trauma de um tratamento anterior:<input type="radio" name="emotioncheck" id="Xor" value="TraumaDeUmTratamentoAnterior"></label>
+            <label id="radioinfo">Medo das consequências da doença:<input type="radio" name="emotioncheck" id="Xor" value="MedoDasConsequenciasDaDoença"></label>
+            <label id="radioinfo">Problemas financeiros:<input type="radio" name="emotioncheck" id="Xor" value="ProblemasFinanceiros"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="4" name="fearobservations" class="textdata" placeholder="Observações a respeito"></textarea>
+            
+            <div id="spacer36"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation2_5">
+            <label class="section_definer">2.5 Amor, Aceitação:</label>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Manifestações:</label>
+            
+            <label id="radioinfo">Carência afetiva:<input type="radio" name="affectioncheck" id="Xor" value="CarenciaAfetiva"></label>
+            <label id="radioinfo">Ansiedade:<input type="radio" name="affectioncheck" id="Xor" value="Ansiedade"></label>
+            <label id="radioinfo">Agitação:<input type="radio" name="affectioncheck" id="Xor" value="Agitacao"></label>
+            <label id="radioinfo">Hostilidade:<input type="radio" name="affectioncheck" id="Xor" value="Hostilidade"></label>
+            <label id="radioinfo">Agressividade:<input type="radio" name="affectioncheck" id="Xor" value="Agressividade"></label>
+            <label id="radioinfo">Depressão:<input type="radio" name="affectioncheck" id="Xor" value="Depressao"></label>
+            <label id="radioinfo">Negativismo:<input type="radio" name="affectioncheck" id="Xor" value="Negativismo"></label>
+            <label id="radioinfo">Exibicionismo:<input type="radio" name="affectioncheck" id="Xor" value="Exibicionismo"></label>
+            <label id="radioinfo">Choro frequente:<input type="radio" name="affectioncheck" id="Xor" value="ChoroFrequente"></label>
+            <label id="radioinfo">Irritabilidade:<input type="radio" name="affectioncheck" id="Xor" value="Irritabilidade"></label>
+            
+            <div id="spacer37"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation2_6">
+            <label class="section_definer">2.6 Autoestima, Autoconfiança e autorrespeito:</label>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Manifestações:</label>
+            
+            <label id="radioinfo">Isolamento:<input type="radio" name="selfcheck" id="Xor" value="Isolamento"></label>
+            <label id="radioinfo">Tendência suicida:<input type="radio" name="selfcheck" id="Xor" value="TendenciaSuicida"></label>
+            <label id="radioinfo">Senso de valor depreciado:<input type="radio" name="selfcheck" id="Xor" value="SensoDeValorDepreciado"></label>
+            <label id="radioinfo">Autodepreciação:<input type="radio" name="selfcheck" id="Xor" value="Autodepreciacao"></label>
+            <label id="radioinfo">Pessimismo:<input type="radio" name="selfcheck" id="Xor" value="Pessimismo"></label>
+            <label id="radioinfo">Não aceitação de sua saúde atual:<input type="radio" name="selfcheck" id="Xor" value="NaoAceitacaoDeSuaSaudeAtual"></label>
+            <label id="radioinfo">Revolta:<input type="radio" name="selfcheck" id="Xor" value="Revolta"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="5" name="selfconfidenceobservations" class="textdata" placeholder="Observações"></textarea>
+            
+            <div id="spacer38"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation2_7">
+            <label class="section_definer">2.7 Liberdade e Participação:</label>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Participação no plano terapêutico:<input type="radio" name="freedomcheck" id="Xor" value="ParticipacaoNoPlanoTerapeutico"></label>
+            <label id="radioinfo">Reação à rotina hospitalar:<input type="radio" name="freedomcheck" id="Xor" value="ReacaoARotinaHospitalar"></label>
+            <label id="radioinfo">Restrição à liberdade:<input type="radio" name="freedomcheck" id="Xor" value="RestricaoALiberdade"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="6" name="freedomobservations" class="textdata" placeholder="Observações"></textarea>
+            
+            <div id="spacer39"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation2_8">
+            <label class="section_definer">2.8 Educação para Saúde/Aprendizagem:</label>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Desejo de adoção de comportamento para elevar o nível de saúde:<input type="radio" name="healtedcheck" id="Xor" value="DesejoDeAdocaoDeComportamentoParaElevarONivelDeSaude" onclick="checkHealthEd(0);"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Conhecimento sobre seu estado de saúde:<input type="radio" name="healtedcheck" id="Xor" value="ConhecimentoSobreSeuEstadoDeSaude" onclick="checkHealthEd(0);"></label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Situações que interferem na não-adesão ao regime terapêutico:<input type="radio" name="healtedcheck" id="Xor" value="SituacoesQueInterferemNaNaoAdesaoAoRegimeTerapeutico" onclick="checkHealthEd(1);"></label>
+            <input type="text" name="healtheducationdescription" class="textdata" id="healtheddesc" placeholder="Situações">
+            
+            <div id="spacer40"></div>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <textarea cols="1" rows="6" name="educationobservations" class="textdata" placeholder="Observações"></textarea>
+            
+            <div id="spacer41"></div>
+            
+        </div>
+        
+        <div class="form_insertion" id="health_situation3_1">
+            <label class="section_definer">3.1 Religiosidade/Espiritualidade:</label>
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo_main">Prática de crença religiosa:</label>
+            
+            <div id="spacer4"></div>
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Nao:<input type="radio" name="spiritualcheck" id="Xor" value="Nao" onclick="checkSpiritual(0);"></label>
+            <label id="radioinfo">Sim:<input type="radio" name="spiritualcheck" id="Xor" value="Sim" onclick="checkSpiritual(1);"></label>
+            <input type="text" name="spiritualdescription" class="textdata" id="spiritualdesc" placeholder="Qual">
+            
+            <div id="spacer42"></div>
+            
+            <label id="radioinfo_main">Necessidade da presença de um líder espiritual ou de atividades religiosas:</label>
+            
+            <div id="spacer4"></div>
+            
+            <label id="radioinfo">Nao:<input type="radio" name="spiritualpresencecheck" id="Xor" value="Nao" onclick="checkSpiritualPresence(0);"></label>
+            <label id="radioinfo">Sim:<input type="radio" name="spiritualpresencecheck" id="Xor" value="Sim" onclick="checkSpiritualPresence(1);"></label>
+            <input type="text" name="spiritualpresencedescription" class="textdata" id="spiritpresdesc" placeholder="Detalhes">
+            
+            <div id="spacer43"></div>
+            
+            <label class="section_definer">4 Finalização de Prontuário:</label>
+            
+            <div id="spacer4"></div>
+            
+            <input type="text" name="citydescription" class="textdata" id="citydesc" placeholder="Cidade">
+            <input type="text" name="statedescription" class="textdata" id="statedesc" placeholder="Estado(Sigla)">
+            <input type="number" name="daydescription" class="textdata" id="daydesc" placeholder="Dia">
+            <input type="text" name="monthdescription" class="textdata" id="monthdesc" placeholder="Mês(extenso)">
+            <input type="number" name="yeardescription" class="textdata" id="yeardesc" placeholder="Ano">
+            
+            <input type="text" name="nursedescription" class="textdata" id="nurseinfo" placeholder="Assinatura do(a) Enfermeiro(a)/COREN">
+            
+        </div>
+        
+        <div class="form_insertion" id="prontuary_overview">
+            <h1>JEEJ</h1>
+            <!-- TODO - PRONTUARY OVERVIEW, WITH REVISION OPTIONS AND A POSSIBLE ZOOM FUNCTIONALITY-->
+            
+        </div>
+        
+        <!-- <div class="menuswitchanim"></div> -->
+        
+        <div class="menu_scroller">
+            <div class="menu_selectors">
+            <button id="prev_section" onclick="toPrevPage();">Página Anterior</button>
+            <button id="next_section" onclick="toNextPage();">Próxima página</button>
+            </div>
+        </div> 
+        
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/menus.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
